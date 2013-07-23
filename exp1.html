@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>required v1.0 | example 1 normal form required</title>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/required.js"></script>
+<script>
+	$(document).ready(function(e) {
+	    // required
+		var chk1 = new Array(
+			{n:"firstName", chk:new Array({f:"chkText", msg:"กรุณากรอก ชื่อ"})}, 
+			{n:"email", chk:new Array(
+				{f:"chkText", msg:"กรุณากรอก อีเมล์"}, 
+				{f:"chkEmail", msg:"กรุณากรอก อีเมล์ ให้ถูกต้อง"}
+			)},
+			{n:"tel", chk:new Array(
+				{f:"chkText", msg:"กรุณากรอก เบอร์โทรศัพท์"}, 
+				{f:"chkNumber", msg:"กรุณากรอก เบอร์โทรศัพท์ เป็นตัวเลขเท่านั้น"}
+			)}, 
+			{n:"linkURL", chk:new Array(
+				{f:"chkText", msg:"กรุณากรอก link URL"}, 
+				{f:"chkUrl", msg:"กรุณากรอก link URL ให้ถูกต้อง"}
+			)}, 
+			{n:"product", chk:new Array({f:"chkText", msg:"กรุณาเลือก สินค้า"})}, 
+			{n:"sex", chk:new Array({f:"chkRadio", msg:"กรุณาเลือก เพศ"})}, 
+			{n:"allow", chk:new Array({f:"chkBox", msg:"กรุณาเลือก ยอมรับเงื่อนไข"})}
+		);
+		
+		$("#formRegister").submit(function(){
+			if(!$.required.checkValue({
+				arr : chk1, 
+				idForm : "formRegister", 
+				errorClass : "error", 
+				onError : function(msg){
+					alert("alert msg = "+msg);
+				}
+			})){
+				return false;
+			}
+			
+			// send data
+			alert("submit form = "+$("#formRegister").serialize());
+			return false;	
+		});
+    });
+</script>
+</head>
+<body>
+	<h2>example 1 normal form required</h2>
+   	<hr />
+    <div>
+    	<form id="formRegister" name="formRegister" action="#" method="post">
+        	<div>ชื่อ : <input name="firstName" type="text" value="" /></div>
+            <div>อีเมล์ : <input name="email" type="text" value="" /></div>
+            <div>เบอร์โทรศัพท์ : <input name="tel" type="text" value="" /></div>
+            <div>link URL : <input name="linkURL" type="text" value="" /></div>
+            <div>
+            	สินค้า : 
+            	<select name="product">
+                	<option value="">กรุณาเลือกสินค้า</option>
+                    <option value="1">สินค้าที่ 1</option>
+                    <option value="2">สินค้าที่ 2</option>
+                </select>
+            </div>
+            <div>
+            	เพศ : 
+            	<label><input type="radio" name="sex" value="male" /> ชาย</label>
+                <label><input type="radio" name="sex" value="female" /> หญิง</label>
+                <label><input type="radio" name="sex" value="male-female" /> กระเทย</label>
+            </div>
+            <div>
+            	<label><input type="checkbox" name="allow" /> ยอมรับเงื่อนไข</label>
+            </div>
+            
+            <input type="submit"/> <input type="reset"/>
+        </form>
+    </div>
+</body>
+</html>
