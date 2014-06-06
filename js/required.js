@@ -8,6 +8,27 @@
 		var filter  = /^-{0,1}\d*\.{0,1}\d+$/;
 		return filter.test(_num);
 	}
+	$.required.chkLength9 = function(_num){
+		if(_num.length != 9){
+			return false;
+		}else {
+			return true;	
+		}
+	}
+	$.required.chkLength10 = function(_num){
+		if(_num.length != 10){
+			return false;
+		}else {
+			return true;	
+		}
+	}
+	$.required.chkTelFormat = function(_num){
+		if(_num.charAt(0) != 0){
+			return false;
+		}else {
+			return true;	
+		}
+	}
 	$.required.chkUrl = function(_url){
 		var filter  = /^(ftp|https?):\/\/+(www\.)?[a-z0-9\-\.]{3,}\.[a-z]{3}$/;
 		return filter.test(_url);

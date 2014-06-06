@@ -16,7 +16,15 @@
 			)},
 			{n:"tel", chk:new Array(
 				{f:"chkText", msg:"กรุณากรอก เบอร์โทรศัพท์"}, 
-				{f:"chkNumber", msg:"กรุณากรอก เบอร์โทรศัพท์ เป็นตัวเลขเท่านั้น"}
+				{f:"chkNumber", msg:"กรุณากรอก เบอร์โทรศัพท์ เป็นตัวเลขเท่านั้น"}, 
+				{f:"chkTelFormat", msg:"กรุณากรอก เบอร์โทรศัพท์ ให้ถูกต้อง"}, 
+				{f:"chkLength9", msg:"กรุณากรอก เบอร์โทรศัพท์ ให้ครบ 9 หลัก"}
+			)}, 
+			{n:"mobile", chk:new Array(
+				{f:"chkText", msg:"กรุณากรอก เบอร์มือถือ"}, 
+				{f:"chkNumber", msg:"กรุณากรอก เบอร์มือถือ เป็นตัวเลขเท่านั้น"}, 
+				{f:"chkTelFormat", msg:"กรุณากรอก เบอร์มือถือ ให้ถูกต้อง"}, 
+				{f:"chkLength10", msg:"กรุณากรอก เบอร์มือถือ ให้ครบ 10 หลัก"}
 			)}, 
 			{n:"linkURL", chk:new Array(
 				{f:"chkText", msg:"กรุณากรอก link URL"}, 
@@ -54,6 +62,7 @@
         	<div>ชื่อ : <input name="firstName" type="text" value="" /></div>
             <div>อีเมล์ : <input name="email" type="text" value="" /></div>
             <div>เบอร์โทรศัพท์ : <input name="tel" type="text" value="" /></div>
+            <div>เบอร์มือถือ : <input name="mobile" type="text" value="" /></div>
             <div>link URL : <input name="linkURL" type="text" value="" /></div>
             <div>
             	สินค้า : 
