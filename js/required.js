@@ -22,6 +22,13 @@
 			return true;	
 		}
 	}
+	$.required.chkLength9to10 = function(_num){
+		if(_num.length != 9 || _num.length != 10){
+			return false;
+		}else {
+			return true;	
+		}
+	}
 	$.required.chkTelFormat = function(_num){
 		if(_num.charAt(0) != 0){
 			return false;
