@@ -40,6 +40,36 @@
 		var filter  = /^(ftp|https?):\/\/+(www\.)?[a-z0-9\-\.]{3,}\.[a-z]{3}$/;
 		return filter.test(_url);
 	}
+	$.required.chkFBURL = function(_url){
+		var chk1 = 'http://';
+		var chk2 = 'https://';
+		var chk3 = 'facebook';
+		
+		if(_url.indexOf(chk1) >= 0 || _url.indexOf(chk2) >= 0){
+			if(_url.indexOf(chk3) > 0){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	$.required.chkFBUser = function(_url){
+		var chk1 = 'http://';
+		var chk2 = 'https://';
+		var chk3 = 'facebook.com/';
+		var arr;
+		
+		if(_url.indexOf(chk1) >= 0 || _url.indexOf(chk2) >= 0){
+			if(_url.indexOf(chk3) > 0){
+				arr = _url.split(chk3);
+				if(arr[1] != ''){
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
 	$.required.chkText = function(_text){
 		if(_text == ""){
 			return false;
