@@ -23,10 +23,10 @@
 		}
 	}
 	$.required.chkLength9to10 = function(_num){
-		if(_num.length != 9 || _num.length != 10){
-			return false;
+		if(_num.length == 9 || _num.length == 10){
+			return true;
 		}else {
-			return true;	
+			return false;	
 		}
 	}
 	$.required.chkTelFormat = function(_num){
